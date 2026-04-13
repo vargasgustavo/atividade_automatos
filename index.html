@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Security Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span>SecHub</span>
+            </div>
+            <div class="nav-links">
+                <button class="active" onclick="switchTab('dashboard', this)">Dashboard</button>
+                <button onclick="switchTab('pdf-viewer', this)">Visualizador de PDF</button>
+                <button onclick="switchTab('ai-chat', this)">Assistente IA</button>
+            </div>
+        </nav>
+
+        <main id="dashboard" class="tab-content active-tab">
+            <header class="page-header">
+                <h1>Segurança de LLMs</h1>
+                <p>Análise de Vulnerabilidades e Defesas Avançadas</p>
+            </header>
+
+            <div class="grid">
+                <section class="card clickable" onclick="selectAttack('injection')">
+                    <div class="card-icon alert-icon"></div>
+                    <h3>Prompt Injection</h3>
+                    <p>Payload para sobrescrever regras do sistema.</p>
+                </section>
+                <section class="card clickable" onclick="selectAttack('jailbreak')">
+                    <div class="card-icon threat-icon"></div>
+                    <h3>Jailbreak</h3>
+                    <p>Cenário hipotético de bypass ético.</p>
+                </section>
+            </div>
+
+            <section class="card main-card">
+                <div class="card-header">
+                    <h3>Monitor de Defesa Ativa</h3>
+                    <span class="status-badge" id="monitor-badge">Aguardando Payload</span>
+                </div>
+                
+                <div class="payload-display">
+                    <span class="payload-label">Payload Carregado:</span>
+                    <code id="current-payload">Nenhum ataque selecionado.</code>
+                </div>
+
+                <div class="monitor-display">
+                    <div class="status-bar">
+                        <div id="defense-level" class="fill" style="width: 100%;"></div>
+                    </div>
+                    <div class="monitor-controls">
+                        <button class="primary-btn" id="btn-simular" onclick="simulateAttack()" disabled>
+                            Simular Ataque
+                        </button>
+                        <div class="log-container">
+                            <p id="log">Aguardando seleção...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <main id="pdf-viewer" class="tab-content" style="display: none;">
+            <header class="page-header">
+                <h1>Relatório Técnico</h1>
+            </header>
+            
+            <section class="card viewer-card">
+                <div class="file-upload-wrapper">
+                    <input type="file" id="pdf-input" accept="application/pdf" onchange="loadPDF(event)" class="file-input">
+                    <label for="pdf-input" class="file-label">
+                        <div class="upload-icon">+</div>
+                        <span>Escolher arquivo PDF</span>
+                    </label>
+                </div>
+                <div id="pdf-container">
+                    <button class="expand-btn" id="expand-btn" onclick="toggleFullscreen()" title="Ampliar PDF">⛶</button>
+                    <div id="pdf-placeholder" style="color: var(--text-muted); text-align: center;">
+                        <p>Nenhum documento visível. Selecione um arquivo acima.</p>
+                    </div>
+                    <iframe id="pdf-frame" src="Protocolos de Criptografia e Segurança de Dados_ Diffie-Hellman e Criptografia Baseada em Atributos (ABE).pdf" frameborder="0"></iframe>
+                </div>
+            </section>
+        </main>
+
+        <main id="ai-chat" class="tab-content" style="display: none;">
+            <header class="page-header">
+                <h1>SecBot Full Access</h1>
+                <p>Consultoria avançada sobre segurança cibernética</p>
+            </header>
+            <section class="card chat-full-card">
+                <div class="chat-full-messages" id="chat-messages">
+                    <div class="message bot-message">
+                        <div class="bubble">Olá! Sou o SecBot. Como posso ajudar com sua pesquisa de segurança hoje?</div>
+                    </div>
+                </div>
+                <div class="chat-full-input-area">
+                    <textarea id="chat-input" rows="1" placeholder="Digite sua pergunta..." onkeydown="handleChatEnter(event)"></textarea>
+                    <button class="primary-btn send-btn" onclick="sendChatMessage()">Enviar</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
