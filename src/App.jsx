@@ -22,12 +22,12 @@ function App() {
                 >
                   Dashboard
                 </button>
-                {/* <button 
+                <button 
                   className={activeTab === 'pdf-viewer' ? 'active' : ''} 
                   onClick={() => setActiveTab('pdf-viewer')}
                 >
                   Visualizador de PDF
-                </button> */}
+                </button>
                 <button 
                   className={activeTab === 'ai-chat' ? 'active' : ''} 
                   onClick={() => setActiveTab('ai-chat')}

@@ -3,8 +3,8 @@ import { useToast } from '../context/ToastContext';
 
 export default function PDFViewer() {
   const { addToast } = useToast();
-  const [pdfSrc, setPdfSrc] = useState("/Protocolos de Criptografia e Segurança de Dados_ Diffie-Hellman e Criptografia Baseada em Atributos (ABE).pdf");
-  const [fileName, setFileName] = useState("Protocolos de Criptografia e Segurança de Dados_ Diffie-Hellman e Criptografia Baseada em Atributos (ABE).pdf");
+  const [pdfSrc, setPdfSrc] = useState("/Avaliação Técnica_ Integração do Protocolo Diffie-Hellman e Criptografia Baseada em Atributos (ABE) em Infraestruturas de Nuvem.pdf");
+  const [fileName, setFileName] = useState("Avaliação Técnica_ Integração do Protocolo Diffie-Hellman e Criptografia Baseada em Atributos (ABE) em Infraestruturas de Nuvem.pdf");
   const containerRef = useRef(null);
   const objectUrlRef = useRef(null);
 
